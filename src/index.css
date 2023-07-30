@@ -21,7 +21,14 @@ code {
   background-color:#000;
   color: #fff;
 }
-.dark-mode small, span  {
+.dark-mode small,
+.dark-mode .delete-icon ,
+.dark-mode .search-icon ,
+span  {
+  color: #000;
+}
+
+.dark-mode .delete-icon {
   color: #000;
 }
 
@@ -53,17 +60,6 @@ code {
   font-weight: 400;
 }
 
-/* .toggle  {
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  border: none;
-}
-
-.toggle:hover {
-  border-radius: 5px;
-  background-color: #565c66;
-  color:  #fff;
-} */
 
 .dark-theme-flex {display: flex; align-items: center; gap: 0.5rem; font-size: 1.2rem;}
 
