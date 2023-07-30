@@ -9,7 +9,7 @@ import setCookie from "./components/cookies/setCookie"
 
 const App = () => {
 
-  const [notes, setNotes] = useState((JSON.parse(localStorage.getItem('notes-app-data'))))
+  const [notes, setNotes] = useState((JSON.parse(localStorage.getItem('notes-app-data'))) || [])
   const [searchNote, setSearchNote] = useState('')
   const [darkTheme, setDarkTheme] = useState(getCookie('theme') || false)
 
