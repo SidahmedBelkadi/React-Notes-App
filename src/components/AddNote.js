@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import NoteContext from "../contexts/NoteContext";
 
-const AddNote = ({handleAddNote}) => {
+const AddNote = () => {
   
     const [text, setText] = useState('')
     const caracterLimit = 1000;
@@ -12,13 +13,16 @@ const AddNote = ({handleAddNote}) => {
         return  
     }
 
+
+    const { addNote } = useContext(NoteContext)
+
     const handleAddClick = () => {
 
         if (text.trim().length <= 0) {
             return
         }
 
-        handleAddNote(text)
+        addNote(text)
         setText('')
     }
 
