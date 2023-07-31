@@ -5,6 +5,7 @@ import SearchBar from "./components/SearchBar"
 import Header from "./components/Header"
 import getCookie from "./components/cookies/getCookie"
 import setCookie from "./components/cookies/setCookie"
+import NoteContext from "./contexts/NoteContext"
 
 
 const App = () => {
@@ -41,19 +42,26 @@ const App = () => {
   
   const searchedNotes = notes.filter(note => note.text.toLowerCase().includes(searchNote))
 
+
+
+  const contextValue = {
+    notes,
+    addNote: addNote,
+    deleteNote: deleteNote
+  }
+
+
   return (
 
-    <div className= {`${darkTheme && 'dark-mode' }`}>
-      <div className="container">
-      <Header handleChangeDarkTheme={setDarkTheme} darkTheme={darkTheme} />
-      <SearchBar handleSearchNote={setSearchNote} />
-      <NotesList 
-        notes={searchedNotes} 
-        handleAddNote={addNote}
-        handleDeleteNote={deleteNote}
-      />
+    <NoteContext.Provider value={contextValue} >
+      <div className= {`${darkTheme && 'dark-mode' }`}>
+        <div className="container">
+          <Header handleChangeDarkTheme={setDarkTheme} darkTheme={darkTheme} />
+          <SearchBar handleSearchNote={setSearchNote} />
+          <NotesList />
+        </div>
       </div>
-    </div>
+    </NoteContext.Provider>
   )
 }
 
